@@ -86,7 +86,7 @@ th, td {
     <h2>جامعة المنوفية</h2>
 
     <input type="text" id="code" placeholder="كود الطالب">
-    <input type="password" id="nid" placeholder="الرقم القومي">
+    <input type="password" id="nid" placeholder="الرقم الاكاديمي">
     <button onclick="login()">تسجيل الدخول</button>
 
     <p id="error"></p>
@@ -140,7 +140,7 @@ function login() {
     let error = document.getElementById("error");
 
     // بيانات تجريبية
-    if (code === "12345" && nid === "29901010101010") {
+    if (code === "17675" && nid === "2990100") {
         document.getElementById("loginPage").classList.add("hidden");
         document.getElementById("studentPage").classList.remove("hidden");
     } else {
