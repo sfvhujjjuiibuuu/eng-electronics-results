@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>نتائج كلية الهندسة الإلكترونية</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 360px;
+    margin: 100px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #aaa;
+    text-align: center;
+}
+
+h1 {
+    color: #004080;
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #004080;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0066cc;
+}
+
+#error {
+    color: red;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #555;
+}
+
+th, td {
+    padding: 8px;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- صفحة تسجيل الدخول -->
+<div class="container" id="loginPage">
+    <h1>نتائج كلية الهندسة الإلكترونية</h1>
+    <h2>جامعة المنوفية</h2>
+
+    <input type="text" id="code" placeholder="كود الطالب">
+    <input type="password" id="nid" placeholder="الرقم القومي">
+    <button onclick="login()">تسجيل الدخول</button>
+
+    <p id="error"></p>
+</div>
+
+<!-- صفحة بيانات الطالب -->
+<div class="container hidden" id="studentPage">
+    <h2>بيانات الطالب</h2>
+
+    <p><strong>الاسم:</strong> عبدالرحمن محمد كمال جعفر</p>
+    <p><strong>الكلية:</strong> الهندسة الإلكترونية</p>
+    <p><strong>الفرقة:</strong> اعدادي</p>
+
+    <h3>النتائج</h3>
+
+    <table>
+        <tr>
+            <th>المادة</th>
+            <th>التقدير</th>
+        </tr>
+        <tr>
+            <td>رياضيات 1</td>
+            <td>ممتاز</td>
+        </tr>
+        <tr>
+            <td>مقدمة حاسب</td>
+            <td>ممتاز</td>
+        </tr>
+        <tr>
+            <td>رسم هندسي 1</td>
+            <td>جيد</td>
+        </tr>
+        <tr>
+            <td>فيزياء 1</td>
+            <td>جيد جدًا</td>
+        </tr>
+        <tr>
+            <td>كيمياء</td>
+            <td>جيد</td>
+        </tr>
+    </table>
+
+    <br>
+    <button onclick="logout()">تسجيل الخروج</button>
+</div>
+
+<script>
+function login() {
+    let code = document.getElementById("code").value;
+    let nid = document.getElementById("nid").value;
+    let error = document.getElementById("error");
+
+    // بيانات تجريبية
+    if (code === "12345" && nid === "29901010101010") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("studentPage").classList.remove("hidden");
+    } else {
+        error.innerText = "بيانات الدخول غير صحيحة";
+    }
+}
+
+function logout() {
+    document.getElementById("studentPage").classList.add("hidden");
+    document.getElementById("loginPage").classList.remove("hidden");
+    document.getElementById("error").innerText = "";
+}
+</script>
+
+</body>
+</html>
